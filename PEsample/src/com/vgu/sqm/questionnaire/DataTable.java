@@ -13,13 +13,14 @@ import javax.json.JsonArrayBuilder;
 import javax.naming.NamingException;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.core.Response;
 
 @Path("/programs")
 public class DataTable {
 	
 	@Path("/table")
 	@GET
-	public JsonArray getProgramsCount() throws SQLException, NamingException   {
+	public Response getProgramsCount() throws SQLException, NamingException   {
 		
 		Connection db = Configuration.getAcademiaConnection();
 		try {
@@ -41,7 +42,7 @@ public class DataTable {
 		        }
 			JsonArray retArray = jsonArray.build();
 			System.out.println(retArray);
-		return retArray;
+		return Response.ok().entity(retArray.toString()).build();
 		
 		}
 		finally {
