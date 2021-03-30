@@ -12,7 +12,7 @@ public class Configuration {
 	public static Connection getAcademiaConnection() throws SQLException, NamingException {
 		Context initContext = new InitialContext();
 		Context envContext = (Context) initContext.lookup("java:comp/env"); 
-		DataSource ds = (DataSource) envContext.lookup("jdbc/schema2");
+		DataSource ds = (DataSource) envContext.lookup("jdbc/pedatabase");
 		return ds.getConnection();
 	} 
 }
