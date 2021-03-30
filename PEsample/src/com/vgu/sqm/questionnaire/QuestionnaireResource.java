@@ -22,7 +22,7 @@ public class QuestionnaireResource {
 		try {
 			
 			PreparedStatement st = db.prepareStatement(
-					"SELECT COUNT(*) as count FROM programm"
+					"SELECT COUNT(*) as count FROM program"
 					);
 			ResultSet rs = st.executeQuery();
 			
