@@ -50,14 +50,14 @@ public class QuestionaireGETService {
 	}
 	@Path("/lecturer/{CName}")
 	@GET
-	public Response GetClassesLecturer(String CCode) throws SQLException, NamingException{
+	public Response GetClassesLecturer(String CName) throws SQLException, NamingException{
 		Connection db = Configuration.getAcademiaConnection();
 		try {
 			JsonArrayBuilder classInfoArrayBuilder = Json.createArrayBuilder();
 			
 			PreparedStatement st = db.prepareStatement(
 					"call GetClassesLecturer(?)");
-			st.setString(0,  CCode);
+			st.setString(0,  CName);
 			
 			ResultSet rs = st.executeQuery();
 			System.out.println(rs);
