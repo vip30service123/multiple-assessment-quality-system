@@ -48,4 +48,30 @@ public class QuestionaireGETService {
 			db.close();
 		}
 	}
+	@Path("/lecturer/{CName}")
+	@GET
+	public Response GetClassesLecturer(String CCode) throws SQLException, NamingException{
+		Connection db = Configuration.getAcademiaConnection();
+		try {
+			JsonArrayBuilder classInfoArrayBuilder = Json.createArrayBuilder();
+			
+			PreparedStatement st = db.prepareStatement(
+					"call GetClassesLecturer(?)");
+			st.setString(0,  CCode);
+			
+			ResultSet rs = st.executeQuery();
+			System.out.println(rs);
+			
+			while (rs.next()) {
+				JsonObject entry = Json.createObjectBuilder()									
+						.add("Lecturer_Name", rs.getString(0)).build();
+				classInfoArrayBuilder.add(entry);
+			}
+			return Response.ok().entity(classInfoArrayBuilder.build().toString()).build();
+		}
+		finally {
+			db.close();
+		}
+		
+	}
 }
