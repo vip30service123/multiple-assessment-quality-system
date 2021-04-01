@@ -19,9 +19,9 @@ import com.vgu.sqm.questionnaire.Configuration;
 @Path("/questionaire")
 public class QuestionaireGETService {
 	
-	@Path("/info/{classID}")
+	@Path("/info/{CName}")
 	@GET
-	public Response getClassInfo(@PathParam("classID") String id) throws SQLException, NamingException{
+	public Response getClassInfo(@PathParam("CName") String id) throws SQLException, NamingException{
 		Connection db = Configuration.getAcademiaConnection();
 		try {
 			JsonArrayBuilder classInfoArrayBuilder = Json.createArrayBuilder();
