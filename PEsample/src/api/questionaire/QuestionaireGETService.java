@@ -54,7 +54,6 @@ public class QuestionaireGETService {
 			
 			PreparedStatement st = db.prepareStatement(
 					"call GetClassesLecturer(\""+CName+"\")");
-			System.out.println("call GetClassesLecturer(\""+CName+"\")");
 			ResultSet rs = st.executeQuery();
 			while (rs.next()) {
 				JsonObject entry = Json.createObjectBuilder()									
