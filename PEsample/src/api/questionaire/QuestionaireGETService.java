@@ -19,12 +19,12 @@ import com.vgu.sqm.questionnaire.Configuration;
 @Path("/questionaire")
 public class QuestionaireGETService {
 	
+		
 	@Path("/info/{CName}")
 	@GET
 	public Response getClassInfo(@PathParam("CName") String id) throws SQLException, NamingException{
 		Connection db = Configuration.getAcademiaConnection();
 		try {
-			JsonArrayBuilder classInfoArrayBuilder = Json.createArrayBuilder();
 			
 			PreparedStatement st = db.prepareStatement(
 					"call GetClassesInfo(?)");
@@ -33,16 +33,14 @@ public class QuestionaireGETService {
 			ResultSet rs = st.executeQuery();
 			System.out.println(rs);
 			
-			while (rs.next()) {
-				JsonObject entry = Json.createObjectBuilder()
-						.add("academic_name", rs.getString(0))
-						.add("semester_name", rs.getString(1))
-						.add("faculty_name", rs.getString(2))
-						.add("program_name", rs.getString(3))
-						.add("module_name", rs.getString(4)).build();
-				classInfoArrayBuilder.add(entry);
-			}
-			return Response.ok().entity(classInfoArrayBuilder.build().toString()).build();
+
+			JsonObject entry = Json.createObjectBuilder()
+			.add("academic_name", rs.getString(0))
+			.add("semester_name", rs.getString(1))
+			.add("faculty_name", rs.getString(2))
+			.add("program_name", rs.getString(3))
+			.add("module_name", rs.getString(4)).build();
+			return Response.ok().entity(entry.toString()).build();
 		}
 		finally {
 			db.close();
