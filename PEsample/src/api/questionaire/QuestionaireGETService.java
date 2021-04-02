@@ -26,7 +26,7 @@ public class QuestionaireGETService {
 	public ResponseBuilder getClasses()throws SQLException, NamingException{
 		Connection db= Configuration.getAcademiaConnection();
 		try {
-			PreparedStatement st = db.prepareStatement("call GetClasses");
+			PreparedStatement st = db.prepareStatement("call GetClasses()");
 			ResultSet rs = st.executeQuery();
 			JsonArrayBuilder CName = Json.createArrayBuilder();
 			if(rs.next()) {
