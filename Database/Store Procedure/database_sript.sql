@@ -1,5 +1,3 @@
-USE pedatabase;
-
 CREATE TABLE Academic_Year(
 	AYCode	VARCHAR(6),
 	AYName	VARCHAR(50),
@@ -88,7 +86,7 @@ CREATE TABLE Lecturer(
 	FOREIGN KEY (CCode) REFERENCES Class(CCode)
 );
 
-CREATE TABLE Questionnaire(
+CREATE TABLE Questionaire(
 	CCode	VARCHAR(6)	NOT NULL,
 	LCode	VARCHAR(6)	NOT NULL,
 	/*STUDENT INFO*/
@@ -118,4 +116,5 @@ CREATE TABLE Questionnaire(
 	
 	FOREIGN KEY (CCode) REFERENCES Class(CCode),
 	FOREIGN KEY (LCode) REFERENCES Lecturer(LCode)
+);
 );
