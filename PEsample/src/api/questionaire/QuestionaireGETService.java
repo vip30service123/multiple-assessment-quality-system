@@ -20,26 +20,25 @@ import com.vgu.sqm.questionnaire.Configuration;
 public class QuestionaireGETService {
 	
 		
+	
+	
 	@Path("/info/{CName}")
 	@GET
 	public Response getClassInfo(@PathParam("CName") String id) throws SQLException, NamingException{
 		Connection db = Configuration.getAcademiaConnection();
 		try {
-			
 			PreparedStatement st = db.prepareStatement(
-					"call GetClassesInfo(?)");
-			st.setString(0, id);
-			
-			ResultSet rs = st.executeQuery();
-			System.out.println(rs);
-			
-
-			JsonObject entry = Json.createObjectBuilder()
-			.add("academic_name", rs.getString(0))
-			.add("semester_name", rs.getString(1))
-			.add("faculty_name", rs.getString(2))
-			.add("program_name", rs.getString(3))
-			.add("module_name", rs.getString(4)).build();
+					"call GetClassesInfo(\""+id+"\")");
+			ResultSet rs = st.executeQuery();		
+			JsonObjectBuilder builder = Json.createObjectBuilder();
+			if(rs.next()) {
+			builder.add("academic_name", rs.getString(1))
+			.add("semester_name", rs.getString(2))
+			.add("faculty_name", rs.getString(3))
+			.add("program_name", rs.getString(4))
+			.add("module_name", rs.getString(5));
+			}
+			JsonObject entry = builder.build();
 			return Response.ok().entity(entry.toString()).build();
 		}
 		finally {
@@ -48,21 +47,18 @@ public class QuestionaireGETService {
 	}
 	@Path("/lecturer/{CName}")
 	@GET
-	public Response GetClassesLecturer(String CName) throws SQLException, NamingException{
+	public Response GetClassesLecturer(@PathParam("CName") String CName) throws SQLException, NamingException{
 		Connection db = Configuration.getAcademiaConnection();
 		try {
 			JsonArrayBuilder classInfoArrayBuilder = Json.createArrayBuilder();
 			
 			PreparedStatement st = db.prepareStatement(
-					"call GetClassesLecturer(?)");
-			st.setString(0,  CName);
-			
+					"call GetClassesLecturer(\""+CName+"\")");
+			System.out.println("call GetClassesLecturer(\""+CName+"\")");
 			ResultSet rs = st.executeQuery();
-			System.out.println(rs);
-			
 			while (rs.next()) {
 				JsonObject entry = Json.createObjectBuilder()									
-						.add("Lecturer_Name", rs.getString(0)).build();
+						.add("Lecturer_Name", rs.getString(1)).build();
 				classInfoArrayBuilder.add(entry);
 			}
 			return Response.ok().entity(classInfoArrayBuilder.build().toString()).build();
