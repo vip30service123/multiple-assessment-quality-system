@@ -23,16 +23,18 @@ public class QuestionaireGETService {
 		
 	@Path("/classes")
 	@GET
-	public ResponseBuilder getClasses()throws SQLException, NamingException{
+	public Response getClasses()throws SQLException, NamingException{
 		Connection db= Configuration.getAcademiaConnection();
 		try {
 			PreparedStatement st = db.prepareStatement("call GetClasses()");
 			ResultSet rs = st.executeQuery();
 			JsonArrayBuilder CName = Json.createArrayBuilder();
-			if(rs.next()) {
-				CName.add(rs.getString(1));
+			while(rs.next()) {
+				CName.add( Json.createObjectBuilder()									
+						.add("Class", rs.getString(1)).build());
 			}
-			return Response.ok().entity(CName.build());
+			JsonArray entry = CName.build();
+			return Response.ok().entity(entry.toString()).build();
 		}
 		finally {
 			db.close();			
