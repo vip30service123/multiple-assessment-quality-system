@@ -13,6 +13,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.ResponseBuilder;
 
 import com.vgu.sqm.questionnaire.Configuration;
 
@@ -20,6 +21,25 @@ import com.vgu.sqm.questionnaire.Configuration;
 public class QuestionaireGETService {
 	
 		
+	@Path("/classes")
+	@GET
+	public Response getClasses()throws SQLException, NamingException{
+		Connection db= Configuration.getAcademiaConnection();
+		try {
+			PreparedStatement st = db.prepareStatement("call GetClasses()");
+			ResultSet rs = st.executeQuery();
+			JsonArrayBuilder CName = Json.createArrayBuilder();
+			while(rs.next()) {
+				CName.add( Json.createObjectBuilder()									
+						.add("Class", rs.getString(1)).build());
+			}
+			JsonArray entry = CName.build();
+			return Response.ok().entity(entry.toString()).build();
+		}
+		finally {
+			db.close();			
+		}
+	}
 	
 	
 	@Path("/info/{CName}")
