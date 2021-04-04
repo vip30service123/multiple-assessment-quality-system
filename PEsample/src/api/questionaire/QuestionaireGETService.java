@@ -6,21 +6,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.json.Json;
+import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 import javax.naming.NamingException;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.ResponseBuilder;
 
 import com.vgu.sqm.questionnaire.Configuration;
 
 @Path("/questionaire")
 public class QuestionaireGETService {
 	
-		
 	@Path("/classes")
 	@GET
 	public Response getClasses()throws SQLException, NamingException{
@@ -40,8 +40,7 @@ public class QuestionaireGETService {
 			db.close();			
 		}
 	}
-	
-	
+
 	@Path("/info/{CName}")
 	@GET
 	public Response getClassInfo(@PathParam("CName") String id) throws SQLException, NamingException{
