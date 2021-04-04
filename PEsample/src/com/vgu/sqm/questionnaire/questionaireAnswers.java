@@ -1,5 +1,4 @@
-package api.questionaire;
-
+package com.vgu.sqm.questionnaire;
 
 public class questionaireAnswers {
 	private String cname;
@@ -159,4 +158,3 @@ public class questionaireAnswers {
 	
 	
 }
-
