@@ -86,8 +86,7 @@ CREATE TABLE Lecturer(
 	FOREIGN KEY (CCode) REFERENCES Class(CCode)
 );
 
-CREATE TABLE Questionare(
-	QCode	VARCHAR(6),
+CREATE TABLE Questionaire(
 	CCode	VARCHAR(6)	NOT NULL,
 	LCode	VARCHAR(6)	NOT NULL,
 	/*STUDENT INFO*/
@@ -115,7 +114,7 @@ CREATE TABLE Questionare(
 	Q17	VARCHAR(10)	CHECK (Q17 IN ('1','2','3','4','5','Not')),
 	Q18	VARCHAR(500),
 	
-	PRIMARY KEY(QCode),
 	FOREIGN KEY (CCode) REFERENCES Class(CCode),
 	FOREIGN KEY (LCode) REFERENCES Lecturer(LCode)
+);
 );
