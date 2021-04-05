@@ -21,6 +21,12 @@ import com.vgu.sqm.questionnaire.Configuration;
 @Path("/questionaire")
 public class QuestionaireGETService {
 	
+	@Path("/test")
+	@GET
+	public String getMessage() throws SQLException, NamingException   {
+		return "Hello Package Api.Questionaire!";
+	}
+	
 	@Path("/classes")
 	@GET
 	public Response getClasses()throws SQLException, NamingException{
