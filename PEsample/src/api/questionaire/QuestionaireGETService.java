@@ -16,11 +16,15 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
-import com.vgu.sqm.questionnaire.Configuration;
+import api.configuration.Configuration;
 
 @Path("/questionaire")
 public class QuestionaireGETService {
-	
+	@Path("/get")
+	@GET
+	public String getMessage() throws SQLException, NamingException   {
+		return "Hello Package Api.Questionaire GET Service!";
+	}	
 	@Path("/classes")
 	@GET
 	public Response getClasses()throws SQLException, NamingException{
