@@ -86,7 +86,7 @@ CREATE TABLE Lecturer(
 	FOREIGN KEY (CCode) REFERENCES Class(CCode)
 );
 
-CREATE TABLE Questionaire(
+CREATE TABLE Questionnaire(
 	CCode	VARCHAR(6)	NOT NULL,
 	LCode	VARCHAR(6)	NOT NULL,
 	/*STUDENT INFO*/
