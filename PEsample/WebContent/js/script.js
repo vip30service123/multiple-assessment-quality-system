@@ -160,11 +160,7 @@ function submitQuestionaire(){
 	$.ajax({
 		type: 'POST',
 		contentType: "application/json",
-<<<<<<< HEAD
-		url: "rest/questionaire/submit",
-=======
 		url: "rest/questionaire/answers",
->>>>>>> Back_End
 		data: JSON.stringify(Answers),
 		dataType: "text",
 		error: function(e) {
@@ -175,8 +171,4 @@ function submitQuestionaire(){
 			}
 	})
 }
-<<<<<<< HEAD
 	
-=======
-	
->>>>>>> Back_End
