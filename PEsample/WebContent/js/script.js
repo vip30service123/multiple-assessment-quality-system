@@ -5,9 +5,7 @@ $(document).ready(function() {
 	getClassInfo()
 	$("#submit").on("click",
 	function(event) {
-		submitQuestionaire(),
-		getExample(),
-		getClasses()
+		submitQuestionaire()
 		})
 	$("#button1").on("click",
 		function(event) {
@@ -133,27 +131,6 @@ function submitQuestionaire(){
 	var value18 = $("#review").val();
 	var gender = $("#gender1 :selected").val();
 	var attend = $("#attend1 :selected").val();
-// test in html	
-	console.log("value1 = " + value1)
-	console.log("value2 = " + value2)
-	console.log("value3 = " + value3)
-	console.log("value4 = " + value4)
-	console.log("value5 = " + value5)
-	console.log("value6 = " + value6)
-	console.log("value7 = " + value7)
-	console.log("value8 = " + value8)
-	console.log("value9 = " + value9)
-	console.log("value10 = " + value10)
-	console.log("value11 = " + value11)
-	console.log("value12 = " + value12)
-	console.log("value13 = " + value13)
-	console.log("value14 = " + value14)
-	console.log("value15 = " + value15)
-	console.log("value16 = " + value16)
-	console.log("value17 = " + value17)
-	console.log("value18 = " + value18)
-	console.log("gender = " + gender)
-	console.log("attend = " + attend)
 	var cname  = new String($("#class_name").children("option:selected").val());
 	var lname = new String($("#lecturer_name").children("option:selected").val());
 	let Answers = {
@@ -180,16 +157,18 @@ function submitQuestionaire(){
 		"q17" : value17,
 		"q18" : value18
 	}
-
 	$.ajax({
 		type: 'POST',
 		contentType: "application/json",
-		url: "rest/questionaire/service",
+		url: "rest/questionaire/submit",
 		data: JSON.stringify(Answers),
 		dataType: "text",
 		error: function(e) {
-    console.log(e);
-  }
+ 		   console.log(e);
+ 		 },
+		success : function(data, textStatus, jqXHR){
+			alert("Submit successful");
+			}
 	})
 }
 	
