@@ -1,4 +1,4 @@
-package com.api.questionaire;
+package api.questionaire;
 
 
 import java.sql.Connection;
@@ -15,8 +15,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 
-import com.api.configuration.Configuration;
-import com.api.model.Classes;
+import api.configuration.Configuration;
+import api.model.Classes;
 
 @Path("/programs")
 public class DataTable {

@@ -1,6 +1,6 @@
-package com.api.model;
+package api.model;
 
-public class questionaireAnswers {
+public class Answers {
 	private String cname;
 	private String lname;
 	private String gender;
@@ -155,6 +155,4 @@ public class questionaireAnswers {
 	public void setQ18(String q18) {
 		this.q18 = q18;
 	}
-	
-	
 }

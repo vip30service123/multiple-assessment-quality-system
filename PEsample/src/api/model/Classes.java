@@ -1,4 +1,4 @@
-package com.api.model;
+package api.model;
 
 public class Classes {
 	private String AYName;

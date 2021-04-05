@@ -1,4 +1,4 @@
-package com.api.configuration;
+package api.configuration;
 
 import java.sql.Connection;
 import java.sql.SQLException;

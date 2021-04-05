@@ -1,4 +1,4 @@
-package com.api.questionaire;
+package api.questionaire;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,7 +11,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 
-import com.api.configuration.Configuration;
+import api.configuration.Configuration;
 
 @Path("/programs")
 public class QuestionnaireResource {

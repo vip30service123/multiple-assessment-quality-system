@@ -1,4 +1,4 @@
-package com.api.questionaire;
+package api.questionaire;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,9 +19,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.api.model.Answers;
-
-import com.api.configuration.*;
+import api.configuration.*;
+import api.model.Answers;
 
 @Path("/questionaire")
 public class QuestionairePOSTService {
