@@ -23,7 +23,7 @@ import com.vgu.sqm.questionnaire.Configuration;
 
 @Path("/questionaire")
 public class QuestionairePOSTService {
-	@Path("/service")
+	@Path("/submit")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response submitQuestionaire(questionaireAnswers Answers)throws SQLException, NamingException{
