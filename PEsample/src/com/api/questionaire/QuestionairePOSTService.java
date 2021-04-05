@@ -1,4 +1,4 @@
-package api.questionaire;
+package com.api.questionaire;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,12 +19,19 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.vgu.sqm.questionnaire.Configuration;
+import com.api.model.Answers;
 
-import model.Answers;
+import api.vgu.sqm.questionnaire.Configuration;
 
 @Path("/questionaire")
 public class QuestionairePOSTService {
+	
+	@Path("/post")
+	@GET
+	public String getMessage() throws SQLException, NamingException   {
+		return "Hello Package Api.Questionaire POST Service!";
+	}
+	
 	@Path("/answers")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
