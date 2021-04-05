@@ -160,7 +160,7 @@ function submitQuestionaire(){
 	$.ajax({
 		type: 'POST',
 		contentType: "application/json",
-		url: "rest/questionaire/submit",
+		url: "rest/questionaire/answers",
 		data: JSON.stringify(Answers),
 		dataType: "text",
 		error: function(e) {
