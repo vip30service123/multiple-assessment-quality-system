@@ -1,4 +1,4 @@
-package com.api.questionaire;
+package com.api.configuration;
 
 import java.sql.Connection;
 import java.sql.SQLException;

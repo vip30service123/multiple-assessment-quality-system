@@ -11,6 +11,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 
+import com.api.configuration.Configuration;
+
 @Path("/programs")
 public class QuestionnaireResource {
 	

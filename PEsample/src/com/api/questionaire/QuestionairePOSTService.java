@@ -21,7 +21,7 @@ import javax.ws.rs.core.Response;
 
 import com.api.model.Answers;
 
-import api.vgu.sqm.questionnaire.Configuration;
+import com.api.configuration.*;
 
 @Path("/questionaire")
 public class QuestionairePOSTService {

@@ -1,4 +1,4 @@
-package com.api.questionaire;
+package com.api.model;
 
 public class questionaireAnswers {
 	private String cname;

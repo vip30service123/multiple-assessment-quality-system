@@ -1,5 +1,6 @@
 package com.api.questionaire;
 
+import com.api.configuration.Configuration;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +17,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
-import api.vgu.sqm.questionnaire.Configuration;
 
 @Path("/questionaire")
 public class QuestionaireGETService {
