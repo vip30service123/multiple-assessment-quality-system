@@ -20,39 +20,41 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.vgu.sqm.questionnaire.Configuration;
-import com.vgu.sqm.questionnaire.questionaireAnswers;
+
+import model.Answers;
 
 @Path("/questionaire")
 public class QuestionairePOSTService {
-	@Path("/service")
+	@Path("/answers")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response submitQuestionaire(questionaireAnswers Answers)throws SQLException, NamingException{
+	public Response submitQuestionaire(Answers answers)throws SQLException, NamingException{
 		Connection db= Configuration.getAcademiaConnection();
 		try {
-			PreparedStatement st = db.prepareStatement("call StoreQuestionnaireDetail(\""+Answers.getCname()+"\","
-					+ "\""+Answers.getLname()+"\","
-					+ "\""+Answers.getAttend()+"\","
-					+ "\""+Answers.getGender()+"\","
-					+ "\""+Answers.getQ1()+"\","
-					+ "\""+Answers.getQ2()+"\","
-					+ "\""+Answers.getQ3()+"\","
-					+ "\""+Answers.getQ4()+"\","
-					+ "\""+Answers.getQ5()+"\","
-					+ "\""+Answers.getQ6()+"\","
-					+ "\""+Answers.getQ7()+"\","
-					+ "\""+Answers.getQ8()+"\","
-					+ "\""+Answers.getQ9()+"\","
-					+ "\""+Answers.getQ10()+"\","
-					+ "\""+Answers.getQ11()+"\","
-				    + "\""+Answers.getQ12()+"\","
-					+ "\""+Answers.getQ13()+"\","
-					+ "\""+Answers.getQ14()+"\","
-					+ "\""+Answers.getQ15()+"\","
-					+ "\""+Answers.getQ16()+"\","
-					+ "\""+Answers.getQ17()+"\","
-					+ "\""+Answers.getQ18()+"\")");
-			System.out.print(st);
+			PreparedStatement st = db.prepareStatement("call StoreQuestionnaireDetail(\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\","
+					+ "\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\")");
+			st.setString(1, answers.getCname());
+			st.setString(2, answers.getLname());
+			st.setString(3, answers.getAttend());
+			st.setString(4, answers.getGender());
+			st.setString(5, answers.getQ1());
+			st.setString(6, answers.getQ2());
+			st.setString(7, answers.getQ3());
+			st.setString(8, answers.getQ4());
+			st.setString(9, answers.getQ5());
+			st.setString(10, answers.getQ6());
+			st.setString(11, answers.getQ7());
+			st.setString(12, answers.getQ8());
+			st.setString(13, answers.getQ9());
+			st.setString(14, answers.getQ10());
+			st.setString(15, answers.getQ11());
+			st.setString(16, answers.getQ12());
+			st.setString(17, answers.getQ13());
+			st.setString(18, answers.getQ14());
+			st.setString(19, answers.getQ15());
+			st.setString(20, answers.getQ16());
+			st.setString(21, answers.getQ17());
+			st.setString(22, answers.getQ18());
 			st.executeQuery();
 			return Response.ok().entity("New academic year successfully inserted").build();
 		}catch(SQLException e) {
