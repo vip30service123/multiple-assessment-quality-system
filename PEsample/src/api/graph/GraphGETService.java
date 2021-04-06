@@ -78,7 +78,7 @@ public class GraphGETService {
 			JsonArrayBuilder faculty = Json.createArrayBuilder();
 			while(rs.next()) {
 				faculty.add( Json.createObjectBuilder()									
-						.add("Faculty", rs.getString(1)).build());
+						.add("Semester", rs.getString(1)).build());
 			}
 			JsonArray entry = faculty.build();
 			return Response.ok().entity(entry.toString()).build();
@@ -110,7 +110,7 @@ public class GraphGETService {
 			JsonArrayBuilder faculty = Json.createArrayBuilder();
 			while(rs.next()) {
 				faculty.add( Json.createObjectBuilder()									
-						.add("Faculty", rs.getString(1)).build());
+						.add("Program", rs.getString(1)).build());
 			}
 			JsonArray entry = faculty.build();
 			return Response.ok().entity(entry.toString()).build();
