@@ -34,18 +34,24 @@ public class GraphGETService {
 	@GET
 	public Response getGeneralInfo(
 			@DefaultValue("") @QueryParam("filter") String filter,
+			@DefaultValue("") @QueryParam("ayname") String ayname, 
+			@DefaultValue("") @QueryParam("sname") String sname, 
+			@DefaultValue("") @QueryParam("fname") String fname, 
+			@DefaultValue("") @QueryParam("pname") String pname, 
+			@DefaultValue("") @QueryParam("mname") String mname, 
+			@DefaultValue("") @QueryParam("lname") String lname, 
 			@DefaultValue("") @QueryParam("cname") String cname
 			) throws SQLException, NamingException {
 		if (filter.equals("attends")) {
 			Connection db = (Connection) Configuration.getAcademiaConnection();
 			try {			
 				PreparedStatement st = db.prepareStatement(
-						"call GetAttends(\"" + "" + "\", "
-								+ "\"" + "" + "\", "
-								+ "\"" + "" + "\", "
-								+ "\"" + "" + "\", "
-								+ "\"" + "" + "\", "
-								+ "\"" + "" + "\", "
+						"call GetAttends(\"" + ayname + "\", "
+								+ "\"" + sname + "\", "
+								+ "\"" + fname + "\", "
+								+ "\"" + pname + "\", "
+								+ "\"" + mname + "\", "
+								+ "\"" + lname + "\", "
 								+ "\"" + cname + "\" )");
 				ResultSet rs = st.executeQuery();
 				JsonObjectBuilder builder = Json.createObjectBuilder();
@@ -66,12 +72,12 @@ public class GraphGETService {
 			Connection db = (Connection) Configuration.getAcademiaConnection();
 			try {			
 				PreparedStatement st = db.prepareStatement(
-						"call GetGenders(\"" + "" + "\", "
-								+ "\"" + "" + "\", "
-								+ "\"" + "" + "\", "
-								+ "\"" + "" + "\", "
-								+ "\"" + "" + "\", "
-								+ "\"" + "" + "\", "
+						"call GetGenders(\"" + ayname + "\", "
+								+ "\"" + sname + "\", "
+								+ "\"" + fname + "\", "
+								+ "\"" + pname + "\", "
+								+ "\"" + mname + "\", "
+								+ "\"" + lname + "\", "
 								+ "\"" + cname + "\" )");
 				ResultSet rs = st.executeQuery();
 				JsonObjectBuilder builder = Json.createObjectBuilder();
@@ -100,7 +106,7 @@ public class GraphGETService {
 			@DefaultValue("") @QueryParam("fname") String fname, 
 			@DefaultValue("") @QueryParam("pname") String pname, 
 			@DefaultValue("") @QueryParam("mname") String mname, 
-			@DefaultValue("") @QueryParam("'name") String lname, 
+			@DefaultValue("") @QueryParam("lname") String lname, 
 			@DefaultValue("") @QueryParam("cname") String cname
 			) throws SQLException, NamingException {
 		Connection db = (Connection) Configuration.getAcademiaConnection();
