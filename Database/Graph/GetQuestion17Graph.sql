@@ -42,7 +42,7 @@ BEGIN
         ROUND((COUNT(*)/SUM(Class.size))*100,2) AS RESP_RATE,
         ROUND(AVG(Q17),2) AS MEAN,
         ROUND(stddev_samp(Q17),2) AS SD,
-        ROUND((SUM(case when Q17 = '1' then 1 else 0 end)/SUM(Class.size)e)*100,2) AS PERCENTAGE_OF_1,
+        ROUND((SUM(case when Q17 = '1' then 1 else 0 end)/SUM(Class.size))*100,2) AS PERCENTAGE_OF_1,
         ROUND((SUM(case when Q17 = '2' then 1 else 0 end)/SUM(Class.size))*100,2) AS PERCENTAGE_OF_2,
         ROUND((SUM(case when Q17 = '3' then 1 else 0 end)/SUM(Class.size))*100,2) AS PERCENTAGE_OF_3,
         ROUND((SUM(case when Q17 = '4' then 1 else 0 end)/SUM(Class.size))*100,2) AS PERCENTAGE_OF_4,
