@@ -42,11 +42,11 @@ BEGIN
         ROUND((COUNT(*)/SUM(Class.size))*100,2) AS RESP_RATE,
         ROUND(AVG(Q6),2) AS MEAN,
         ROUND(stddev_samp(Q6),2) AS SD,
-        ROUND((SUM(case when Q6 = '1' then 1 else 0 end)/SUM(Class.size))*100,2) AS PERCENTAGE_OF_1,
-        ROUND((SUM(case when Q6 = '2' then 1 else 0 end)/SUM(Class.size))*100,2) AS PERCENTAGE_OF_2,
-        ROUND((SUM(case when Q6 = '3' then 1 else 0 end)/SUM(Class.size))*100,2) AS PERCENTAGE_OF_3,
-        ROUND((SUM(case when Q6 = '4' then 1 else 0 end)/SUM(Class.size))*100,2) AS PERCENTAGE_OF_4,
-        ROUND((SUM(case when Q6 = '5' then 1 else 0 end)/SUM(Class.size))*100,2) AS PERCENTAGE_OF_5
+        ROUND((SUM(case when Q6 = '1' then 1 else 0 end)/COUNT(*))*100,2) AS PERCENTAGE_OF_1,
+        ROUND((SUM(case when Q6 = '2' then 1 else 0 end)/COUNT(*))*100,2) AS PERCENTAGE_OF_2,
+        ROUND((SUM(case when Q6 = '3' then 1 else 0 end)/COUNT(*))*100,2) AS PERCENTAGE_OF_3,
+        ROUND((SUM(case when Q6 = '4' then 1 else 0 end)/COUNT(*))*100,2) AS PERCENTAGE_OF_4,
+        ROUND((SUM(case when Q6 = '5' then 1 else 0 end)/COUNT(*))*100,2) AS PERCENTAGE_OF_5
         
 	FROM Questionnaire 
 		NATURAL JOIN Aca_Faculty
