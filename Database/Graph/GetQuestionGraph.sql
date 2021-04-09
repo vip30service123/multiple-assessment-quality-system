@@ -1,5 +1,5 @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GetQuestionGraph`(academic_year VARCHAR(50), semester VARCHAR(50),
- faculty VARCHAR(50), program VARCHAR(50), module VARCHAR(50), lecturer VARCHAR(50), class VARCHAR(50),question VARCHAR(3))
+ faculty VARCHAR(50), program VARCHAR(50), module VARCHAR(50), lecturer VARCHAR(50), class VARCHAR(50),question VARCHAR(2))
 BEGIN
 	set academic_year=concat(academic_year,'%'); 
     if academic_year is NULL then 
@@ -40,7 +40,7 @@ BEGIN
 	SET @Query:=CONCAT("SELECT 
         COUNT(*) AS N,
         ROUND((COUNT(*)/(SELECT @total))*100,2) AS RESP_RATE,
-        ROUND(AVG(Q10),2) AS MEAN,
+        ROUND(AVG(",question,"),2) AS MEAN,
         ROUND(stddev_samp(",question,"),2) AS SD,
         ROUND((SUM(case when ",question," = '1' then 1 else 0 end)/COUNT(*))*100,2) AS PERCENTAGE_OF_1,
         ROUND((SUM(case when ",question," = '2' then 1 else 0 end)/COUNT(*))*100,2) AS PERCENTAGE_OF_2,
