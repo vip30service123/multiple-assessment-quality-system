@@ -35,11 +35,11 @@ BEGIN
     if class is NULL then 
 		set class = '%';
 	end if;
-	
+    
+    CALL GetTotalClassesSize(academic_year,semester,faculty,program,module,lecturer,class,@total);
 	SELECT 
-		
         COUNT(*) AS N,
-        ROUND((COUNT(*)/SUM(Class.size))*100,2) AS RESP_RATE,
+        ROUND((COUNT(*)/(SELECT @total))*100,2) AS RESP_RATE,
         ROUND(AVG(Q11),2) AS MEAN,
         ROUND(stddev_samp(Q11),2) AS SD,
         ROUND((SUM(case when Q11 = '1' then 1 else 0 end)/COUNT(*))*100,2) AS PERCENTAGE_OF_1,
