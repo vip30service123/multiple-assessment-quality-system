@@ -30,7 +30,50 @@ public class GraphGETService {
 	public String getMessage() throws SQLException, NamingException {
 		return "Hello from api.graph";
 	}
-	
+	@Path("question")
+	@GET
+	public Response getQuestionGraph(
+			@DefaultValue("") @QueryParam("ayname") String ayname, 
+			@DefaultValue("") @QueryParam("sname") String sname, 
+			@DefaultValue("") @QueryParam("fname") String fname, 
+			@DefaultValue("") @QueryParam("pname") String pname, 
+			@DefaultValue("") @QueryParam("mname") String mname, 
+			@DefaultValue("") @QueryParam("lname") String lname, 
+			@DefaultValue("") @QueryParam("cname") String cname,
+			@DefaultValue("") @QueryParam("qname") String qname
+			)throws SQLException, NamingException {
+		Connection db = (Connection) Configuration.getAcademiaConnection();
+		try {
+			PreparedStatement st = db.prepareStatement("{ call GetQuestionGraph(?,?,?,?,?,?,?,?) }");
+				st.setString(1, ayname);
+				st.setString(2, sname);
+				st.setString(3, fname);
+				st.setString(4, pname);
+				st.setString(5, mname);
+				st.setString(6, lname);
+				st.setString(7, cname);
+				st.setString(8, qname);
+			System.out.println(st);
+			ResultSet rs = st.executeQuery();	
+			JsonObjectBuilder builder = Json.createObjectBuilder();
+			if(rs.next()) {
+				builder.add("Count", rs.getString(1))
+					.add("Rate", rs.getString(2))
+					.add("Average", rs.getString(3))
+					.add("Standard Deviation", rs.getString(4))
+					.add("Percentage of 1", rs.getString(5))
+					.add("Percentage of 2", rs.getString(6))
+					.add("Percentage of 3", rs.getString(7))
+					.add("Percentage of 4", rs.getString(8))
+					.add("Percentage of 5", rs.getString(9));				
+			}
+			JsonObject entry = builder.build();
+			return Response.ok().entity(entry.toString()).build();
+		}
+		finally {
+			db.close();
+		}
+	}
 	@Path("general")
 	@GET
 	public Response getGeneralInfo(
