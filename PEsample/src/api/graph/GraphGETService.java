@@ -61,11 +61,11 @@ public class GraphGETService {
 					.add("Rate", rs.getString(2))
 					.add("Average", rs.getString(3))
 					.add("Standard Deviation", rs.getString(4))
-					.add("Percentage of 1", rs.getString(5))
-					.add("Percentage of 2", rs.getString(6))
-					.add("Percentage of 3", rs.getString(7))
-					.add("Percentage of 4", rs.getString(8))
-					.add("Percentage of 5", rs.getString(9));				
+					.add("Percentage_of_1", rs.getString(5))
+					.add("Percentage_of_2", rs.getString(6))
+					.add("Percentage_of_3", rs.getString(7))
+					.add("Percentage_of_4", rs.getString(8))
+					.add("Percentage_of_5", rs.getString(9));				
 			}
 			JsonObject entry = builder.build();
 			return Response.ok().entity(entry.toString()).build();
