@@ -5,99 +5,13 @@ $("#visual").on("click",
 		getGeneralInfo()
 		})
 })
+$("#reset").on("click",
+	function(event){
+		getInitialize()
+	})
 
 function getFilterResources() {
-		var ayname = ""
-		var sname = ""
-		var fname = ""
-		var pname = ""
-		var mname = ""
-		var lname = ""
-		var cname = ""
-		$.ajax({
-		type: 'GET',
-		url: "rest/graph/resources?selector=cname&ayname=" + ayname +"&sname=" + sname + "&fname=" + fname + "&pname=" + pname + "&mname=" + mname + "&lname=" + lname,
-		success: function (data, textStatus, jqXHR) {
-			var obj = JSON.parse(data);
-			for (var i = 0; i < obj.length; i++){
-				cla = new String(obj[i].cname);
-				console.log(cla);
-				$("#cla-select").append('<option value="'+ cla +'">'+ cla +'</option>')
-			}
-		}
-	})
-		$.ajax({
-		type: 'GET',
-		url: "rest/graph/resources?selector=ayname&ayname=" + ayname +"&sname=" + sname + "&fname=" + fname + "&pname=" + pname + "&mname=" + mname + "&lname=" + lname,
-		success: function (data, textStatus, jqXHR) {
-			var obj = JSON.parse(data);
-			for (var i = 0; i < obj.length; i++){
-				cla = new String(obj[i].ayname);
-				console.log(cla);
-				$("#aca-select").append('<option value="'+ cla +'">'+ cla +'</option>')
-			}
-		}
-	})
-	$.ajax({
-		type: 'GET',
-		url: "rest/graph/resources?selector=sname&ayname=" + ayname +"&sname=" + sname + "&fname=" + fname + "&pname=" + pname + "&mname=" + mname + "&lname=" + lname,
-		success: function (data, textStatus, jqXHR) {
-			var obj = JSON.parse(data);
-			for (var i = 0; i < obj.length; i++){
-				cla = new String(obj[i].sname);
-				console.log(cla);
-				$("#sem-select").append('<option value="'+ cla +'">'+ cla +'</option>')
-			}
-		}
-	})
-	$.ajax({
-		type: 'GET',
-		url: "rest/graph/resources?selector=fname&ayname=" + ayname +"&sname=" + sname + "&fname=" + fname + "&pname=" + pname + "&mname=" + mname + "&lname=" + lname,
-		success: function (data, textStatus, jqXHR) {
-			var obj = JSON.parse(data);
-			for (var i = 0; i < obj.length; i++){
-				cla = new String(obj[i].fname);
-				console.log(cla);
-				$("#fal-select").append('<option value="'+ cla +'">'+ cla +'</option>')
-			}
-		}
-	})
-	$.ajax({
-		type: 'GET',
-		url: "rest/graph/resources?selector=mname&mname=" + ayname +"&sname=" + sname + "&fname=" + fname + "&pname=" + pname + "&mname=" + mname + "&lname=" + lname,
-		success: function (data, textStatus, jqXHR) {
-			var obj = JSON.parse(data);
-			for (var i = 0; i < obj.length; i++){
-				cla = new String(obj[i].mname);
-				console.log(cla);
-				$("#mod-select").append('<option value="'+ cla +'">'+ cla +'</option>')
-			}
-		}
-	})
-	$.ajax({
-		type: 'GET',
-		url: "rest/graph/resources?selector=pname&ayname=" + ayname +"&sname=" + sname + "&fname=" + fname + "&pname=" + pname + "&mname=" + mname + "&lname=" + lname,
-		success: function (data, textStatus, jqXHR) {
-			var obj = JSON.parse(data);
-			for (var i = 0; i < obj.length; i++){
-				cla = new String(obj[i].pname);
-				console.log(cla);
-				$("#pro-select").append('<option value="'+ cla +'">'+ cla +'</option>')
-			}
-		}
-	})
-	$.ajax({
-		type: 'GET',
-		url: "rest/graph/resources?selector=lname&ayname=" + ayname +"&sname=" + sname + "&fname=" + fname + "&pname=" + pname + "&mname=" + mname + "&lname=" + lname,
-		success: function (data, textStatus, jqXHR) {
-			var obj = JSON.parse(data);
-			for (var i = 0; i < obj.length; i++){
-				cla = new String(obj[i].lname);
-				console.log(cla);
-				$("#lec-select").append('<option value="'+ cla +'">'+ cla +'</option>')
-			}
-		}
-	})
+	getInitialize();
 	 $("#cla-select").change(function() {
 		getcname()
  })
@@ -120,6 +34,78 @@ function getFilterResources() {
 	$("#lec-select").change(function() {
 		getlname()
  })
+
+
+	$("#aca-select").mouseover(function(){
+	var usedNames = {};
+		$("select[name='aca-select'] > option").each(function () {
+   		 if(usedNames[this.text]) {
+       		 $(this).remove();
+    	} else {
+        	usedNames[this.text] = this.value;
+   				}
+});
+	})
+	$("#sem-select").mouseover(function(){
+	var usedNames = {};
+		$("select[name='sem-select'] > option").each(function () {
+   		 if(usedNames[this.text]) {
+       		 $(this).remove();
+    	} else {
+        	usedNames[this.text] = this.value;
+   				}
+});
+	})
+	$("#fal-select").mouseover(function(){
+	var usedNames = {};
+		$("select[name='fal-select'] > option").each(function () {
+   		 if(usedNames[this.text]) {
+       		 $(this).remove();
+    	} else {
+        	usedNames[this.text] = this.value;
+   				}
+});
+	})
+	$("#mod-select").mouseover(function(){
+	var usedNames = {};
+		$("select[name='mod-select'] > option").each(function () {
+   		 if(usedNames[this.text]) {
+       		 $(this).remove();
+    	} else {
+        	usedNames[this.text] = this.value;
+   				}
+});
+	})
+	$("#pro-select").mouseover(function(){
+	var usedNames = {};
+		$("select[name='pro-select'] > option").each(function () {
+   		 if(usedNames[this.text]) {
+       		 $(this).remove();
+    	} else {
+        	usedNames[this.text] = this.value;
+   				}
+});
+	})
+	$("#cla-select").mouseover(function(){
+	var usedNames = {};
+		$("select[name='cla-select'] > option").each(function () {
+   		 if(usedNames[this.text]) {
+       		 $(this).remove();
+    	} else {
+        	usedNames[this.text] = this.value;
+   				}
+});
+	})
+	$("#lec-select").mouseover(function(){
+	var usedNames = {};
+		$("select[name='lec-select'] > option").each(function () {
+   		 if(usedNames[this.text]) {
+       		 $(this).remove();
+    	} else {
+        	usedNames[this.text] = this.value;
+   				}
+});
+	})
  }
 function getcname(){
 		var cname = new String($("#cla-select").children("option:selected").val());
@@ -861,4 +847,114 @@ function getGeneralInfo(){
 								});
 				}
 			})
+}
+
+function getInitialize(){
+		$("#aca-select").children("option").remove();
+		$("#sem-select").children("option").remove();
+		$("#fal-select").children("option").remove();
+		$("#pro-select").children("option").remove();
+		$("#mod-select").children("option").remove();
+		$("#cla-select").children("option").remove();
+		$("#lec-select").children("option").remove();
+		
+	ayname = ""
+	sname = ""
+	fname = ""
+	pname = ""
+	mname = ""
+	lname = ""
+	cname = ""
+	$("#aca-select").append($('<option>').val("").text("aca_year"));
+	$("#sem-select").append($('<option>').val("").text("semester"));
+	$("#fal-select").append($('<option>').val("").text("faculty"));
+	$("#pro-select").append($('<option>').val("").text("program"));
+	$("#mod-select").append($('<option>').val("").text("module"));
+	$("#cla-select").append($('<option>').val("").text("class"));
+	$("#lec-select").append($('<option>').val("").text("lecturer"));
+
+	$.ajax({
+		type: 'GET',
+		url: "rest/graph/resources?selector=cname&ayname=" + ayname +"&sname=" + sname + "&fname=" + fname + "&pname=" + pname + "&mname=" + mname + "&lname=" + lname,
+		success: function (data, textStatus, jqXHR) {
+			var obj = JSON.parse(data);
+			for (var i = 0; i < obj.length; i++){
+				cla = new String(obj[i].cname);
+				console.log(cla);
+				$("#cla-select").append('<option value="'+ cla +'">'+ cla +'</option>')
+			}
+		}
+	})
+		$.ajax({
+		type: 'GET',
+		url: "rest/graph/resources?selector=ayname&ayname=" + ayname +"&sname=" + sname + "&fname=" + fname + "&pname=" + pname + "&mname=" + mname + "&lname=" + lname,
+		success: function (data, textStatus, jqXHR) {
+			var obj = JSON.parse(data);
+			for (var i = 0; i < obj.length; i++){
+				cla = new String(obj[i].ayname);
+				console.log(cla);
+				$("#aca-select").append('<option value="'+ cla +'">'+ cla +'</option>')
+			}
+		}
+	})
+	$.ajax({
+		type: 'GET',
+		url: "rest/graph/resources?selector=sname&ayname=" + ayname +"&sname=" + sname + "&fname=" + fname + "&pname=" + pname + "&mname=" + mname + "&lname=" + lname,
+		success: function (data, textStatus, jqXHR) {
+			var obj = JSON.parse(data);
+			for (var i = 0; i < obj.length; i++){
+				cla = new String(obj[i].sname);
+				console.log(cla);
+				$("#sem-select").append('<option value="'+ cla +'">'+ cla +'</option>')
+			}
+		}
+	})
+	$.ajax({
+		type: 'GET',
+		url: "rest/graph/resources?selector=fname&ayname=" + ayname +"&sname=" + sname + "&fname=" + fname + "&pname=" + pname + "&mname=" + mname + "&lname=" + lname,
+		success: function (data, textStatus, jqXHR) {
+			var obj = JSON.parse(data);
+			for (var i = 0; i < obj.length; i++){
+				cla = new String(obj[i].fname);
+				console.log(cla);
+				$("#fal-select").append('<option value="'+ cla +'">'+ cla +'</option>')
+			}
+		}
+	})
+	$.ajax({
+		type: 'GET',
+		url: "rest/graph/resources?selector=mname&mname=" + ayname +"&sname=" + sname + "&fname=" + fname + "&pname=" + pname + "&mname=" + mname + "&lname=" + lname,
+		success: function (data, textStatus, jqXHR) {
+			var obj = JSON.parse(data);
+			for (var i = 0; i < obj.length; i++){
+				cla = new String(obj[i].mname);
+				console.log(cla);
+				$("#mod-select").append('<option value="'+ cla +'">'+ cla +'</option>')
+			}
+		}
+	})
+	$.ajax({
+		type: 'GET',
+		url: "rest/graph/resources?selector=pname&ayname=" + ayname +"&sname=" + sname + "&fname=" + fname + "&pname=" + pname + "&mname=" + mname + "&lname=" + lname,
+		success: function (data, textStatus, jqXHR) {
+			var obj = JSON.parse(data);
+			for (var i = 0; i < obj.length; i++){
+				cla = new String(obj[i].pname);
+				console.log(cla);
+				$("#pro-select").append('<option value="'+ cla +'">'+ cla +'</option>')
+			}
+		}
+	})
+	$.ajax({
+		type: 'GET',
+		url: "rest/graph/resources?selector=lname&ayname=" + ayname +"&sname=" + sname + "&fname=" + fname + "&pname=" + pname + "&mname=" + mname + "&lname=" + lname,
+		success: function (data, textStatus, jqXHR) {
+			var obj = JSON.parse(data);
+			for (var i = 0; i < obj.length; i++){
+				cla = new String(obj[i].lname);
+				console.log(cla);
+				$("#lec-select").append('<option value="'+ cla +'">'+ cla +'</option>')
+			}
+		}
+	})
 }
