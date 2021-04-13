@@ -53,14 +53,13 @@ public class GraphGETService {
 				st.setString(6, lname);
 				st.setString(7, cname);
 				st.setString(8, qname);
-			System.out.println(st);
 			ResultSet rs = st.executeQuery();	
 			JsonObjectBuilder builder = Json.createObjectBuilder();
 			if(rs.next()) {
 				builder.add("Count", rs.getString(1))
 					.add("Rate", rs.getString(2))
 					.add("Average", rs.getString(3))
-					.add("Standard Deviation", rs.getString(4))
+					.add("Standard_Deviation", rs.getString(4))
 					.add("Percentage_of_1", rs.getString(5))
 					.add("Percentage_of_2", rs.getString(6))
 					.add("Percentage_of_3", rs.getString(7))
@@ -130,7 +129,6 @@ public class GraphGETService {
 				st.setString(7, cname);
 				
 				ResultSet rs = st.executeQuery();
-				System.out.println(st);
 				JsonObjectBuilder builder = Json.createObjectBuilder();
 				if(rs.next()) {
 					builder.add("Female", rs.getString(1))
@@ -176,7 +174,6 @@ public class GraphGETService {
 			st.setString(6, lname);
 			st.setString(7, cname);
 			st.setString(8, selector);
-			System.out.print(st);
 			ResultSet result = st.executeQuery();
 			JsonArrayBuilder builder = Json.createArrayBuilder();
 			while (result.next()) {
