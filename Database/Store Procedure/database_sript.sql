@@ -117,4 +117,3 @@ CREATE TABLE Questionnaire(
 	FOREIGN KEY (CCode) REFERENCES Class(CCode),
 	FOREIGN KEY (LCode) REFERENCES Lecturer(LCode)
 );
-);
