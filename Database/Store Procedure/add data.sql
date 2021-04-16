@@ -184,7 +184,7 @@ INSERT INTO `pedatabase`.`academic_year` (`AYCode`, `AYName`) VALUES ('A02012', 
 	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00024', 'Richard Bradley', 'C00005');
 	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00025', 'Ngo Minh Thai', 'C00013');
 	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00026', 'Sione Aldric', 'C00008');
-	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00027', 'Tran Van Hung', 'C00021');
+	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00027', 'Joe Duck', 'C00021');
 	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00028', 'Lyrai Luna', 'C00003');
 	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00029', 'Lina Mirana', 'C00027');
 	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00030', 'Alexei Stukov', 'C00007');
