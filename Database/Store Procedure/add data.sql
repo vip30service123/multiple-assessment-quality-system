@@ -167,7 +167,7 @@ INSERT INTO `pedatabase`.`academic_year` (`AYCode`, `AYName`) VALUES ('A02012', 
 	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00007', 'Sylvannas Windrunner', 'C00014');
 	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00008', 'Tim Johnson', 'C00015');
 	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00009', 'Jones McDonald', 'C00029');
-	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00010', 'Tran Cao Duy', 'C00023');
+	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00010', 'Hoang Cao Duy', 'C00023');
 	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00011', 'Vincent Law', 'C00022');
 	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00012', 'Anathan Pham', 'C00024');
 	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00013', 'Richard Bradley', 'C00023');
@@ -178,7 +178,7 @@ INSERT INTO `pedatabase`.`academic_year` (`AYCode`, `AYName`) VALUES ('A02012', 
 	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00018', 'Alexei Stukov', 'C00012');
 	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00019', 'Nolva Carpenter', 'C00030');
 	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00020', 'Tom Jerry', 'C00019');
-	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00021', 'Tran Cao Duy', 'C00020');
+	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00021', 'Hoang Cao Duy', 'C00020');
 	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00022', 'Vincent Law', 'C00001');
 	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00023', 'Anathan Pham', 'C00028');
 	INSERT INTO `pedatabase`.`lecturer` (`LCode`, `LName`, `CCode`) VALUES ('L00024', 'Richard Bradley', 'C00005');
